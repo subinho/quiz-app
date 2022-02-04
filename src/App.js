@@ -1,10 +1,21 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Welcome } from './components/Welcome';
+import { Quiz } from './components/Quiz';
 
   const App = () => { 
     const [startQuiz, setStartQuiz] = useState(false);
+    const [questions, setQuestions] = useState([])
+
+    const api_url = 'https://opentdb.com/api.php?amount=10&type=multiple'
+
+    useEffect(async () => {
+      const response = await fetch(api_url)
+      const data = await response.json()
+
+      setQuestions(data.results)
+    }, [])
 
     const handleStart = () => {
       setStartQuiz(true)
@@ -13,16 +24,8 @@ import { Welcome } from './components/Welcome';
     return (
       <div className="App">
         {startQuiz ? 
-        <div>
-          <h2>Question</h2>
-          <div>
-            <button>Option 1</button>
-            <button>Option 2</button>
-            <button>Option 3</button>
-            <button>Option 4</button>
-          </div>
-        </div>
-         : <Welcome startQuiz={handleStart}/>}
+        <Quiz data={questions[0]} />
+         : <Welcome startQuiz={handleStart} />}
       </div>
     )
 };
