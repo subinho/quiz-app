@@ -1,38 +1,42 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Welcome Component */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.welcome {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.welcome h1 {
+  color: #7fd1ae;
+  margin-bottom: 1em;
+  font-size: 4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.welcome button {
+  font-size: 2rem;
+  font-weight: bold;
+  min-width: 18em;
+  padding: 1em 2em;
+  background-color: #0f93998c;
+  color: #fff;
+  border: 0px;
+  border-radius: 45px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.welcome button:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
