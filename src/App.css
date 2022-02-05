@@ -1,3 +1,10 @@
+:root {
+  --white-color: hsl(0, 0%, 100%);
+  --light-blue-color: hsla(183, 82%, 33%, 0.549);
+  --dark-blue-color: hsla(183, 82%, 33%, 0.616);
+  --light-green-color: hsl(154, 47%, 66%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,12 +12,10 @@
 }
 
 body {
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--white-color)
 }
 
-/* Welcome Component */
-
-.welcome {
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,8 +23,15 @@ body {
   height: 100vh;
 }
 
+/* Welcome Component */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .welcome h1 {
-  color: hsl(154, 47%, 66%);
+  color: var(--light-green-color);
   margin-bottom: 1em;
   font-size: 4rem;
 }
@@ -29,7 +41,7 @@ body {
   font-weight: bold;
   min-width: 18em;
   padding: 1em 2em;
-  background-color: hsla(183, 82%, 33%, 0.549);
+  background-color: var(--light-blue-color);
   color: hsl(0, 0%, 100%);
   border: 0px;
   border-radius: 45px;
@@ -37,7 +49,49 @@ body {
 }
 
 .welcome button:hover {
-  background-color: hsla(183, 82%, 33%, 0.616);
+  background-color: var(--dark-blue-color);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+/* Quiz Component */
+
+.quiz {
+  padding: 5em;
+  background-color: var(--light-green-color);
+  border-radius: 70px;
+}
+
+.quiz-question {
+  font-size: 1.5rem;
+  min-width: 60%;
+  padding: 3em 2em;
+  margin-bottom: 4em;
+  background-color: var(--light-blue-color);
+  color: hsl(0, 0%, 100%);
+  border-radius: 25px;
+}
+
+.quiz-answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5em;
+}
+
+.quiz-answers-button {
+  font-size: 1em;
+  font-weight: 800;
+  min-width: 36rem;
+  padding: 2em 2em;
+  background-color: var(--light-blue-color);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.quiz-answers-button:hover {
+  background-color: var(--dark-blue-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }

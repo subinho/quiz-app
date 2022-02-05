@@ -25,7 +25,8 @@ import { Quiz } from './components/Quiz';
       <div className="App">
         {startQuiz ? 
         <Quiz data={questions[0]} />
-         : <Welcome startQuiz={handleStart} />}
+        : 
+        <Welcome startQuiz={handleStart} />}
       </div>
     )
 };
