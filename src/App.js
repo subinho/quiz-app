@@ -8,6 +8,7 @@ import { Quiz } from './components/Quiz';
   const App = () => { 
     const [startQuiz, setStartQuiz] = useState(false);
     const [questions, setQuestions] = useState([]);
+    const [score, setScore] = useState(0);
 
     const api_url = 'https://opentdb.com/api.php?amount=10&type=multiple'
 
@@ -29,12 +30,10 @@ import { Quiz } from './components/Quiz';
     const handleStart = () => {
       setStartQuiz(true)
     }
-
+    
     const handleAnswer = (answer) => {
       if (answer === questions[0].correct_answer) {
-        console.log('nice');
-      } else {
-        console.log('too bad');
+        setScore(score + 1)
       }
     }
 
