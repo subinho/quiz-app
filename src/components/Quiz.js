@@ -9,10 +9,9 @@ export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handl
             <h2>{question}</h2>    
         </div>
         <div className='quiz-answers'>
-            <button className='quiz-answers-button' onClick={() => handleAnswer(shuffledAnswers[0])}>{shuffledAnswers[0]}</button>
-            <button className='quiz-answers-button' onClick={() => handleAnswer(shuffledAnswers[1])}>{shuffledAnswers[1]}</button>
-            <button className='quiz-answers-button' onClick={() => handleAnswer(shuffledAnswers[2])}>{shuffledAnswers[2]}</button>
-            <button className='quiz-answers-button' onClick={() => handleAnswer(shuffledAnswers[3])}>{shuffledAnswers[3]}</button>
+          {shuffledAnswers.map(answer => (
+            <button className='quiz-answers-button' onClick={() => handleAnswer(answer)}> {answer} </button>
+          ))}
         </div>
   </div>
   );
