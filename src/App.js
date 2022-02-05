@@ -30,10 +30,18 @@ import { Quiz } from './components/Quiz';
       setStartQuiz(true)
     }
 
+    const handleAnswer = (answer) => {
+      if (answer === questions[0].correct_answer) {
+        console.log('nice');
+      } else {
+        console.log('too bad');
+      }
+    }
+
     return (
       <div className="App">
         {startQuiz ? 
-        <Quiz data={questions[0]} />
+        <Quiz data={questions[0]} handleAnswer={handleAnswer}/>
         : 
         <Welcome startQuiz={handleStart} />}
       </div>
