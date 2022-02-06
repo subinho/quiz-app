@@ -15,6 +15,7 @@ import { Quiz } from './components/Quiz';
     const [index, setIndex] = useState(0);
 
     const api_url = 'https://opentdb.com/api.php?amount=10&type=multiple'
+    const endGame = index < questions.length
 
     useEffect(async () => {
       const response = await fetch(api_url);
@@ -47,18 +48,19 @@ import { Quiz } from './components/Quiz';
       setRevealAnswer(false)
       setIndex(index + 1)
     }
-
+    
     return (
       <div className="App">
-        {startQuiz ? isLoading ?
+        {endGame ? startQuiz ? isLoading ?
         <Quiz 
         data={questions[index]} 
         handleAnswer={handleAnswer}
         revealAnswer={revealAnswer}
         handleNextQuestion={handleNextQuestion}
-        /> : <ClipLoader size={100}/>
-        : 
-        <Welcome startQuiz={handleStart} />}
+        /> 
+        : <ClipLoader size={100}/>
+        : <Welcome startQuiz={handleStart} /> 
+        : <div>{score}</div>}
       </div>
     )
 };
