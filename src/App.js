@@ -12,6 +12,7 @@ import { Quiz } from './components/Quiz';
     const [score, setScore] = useState(0);
     const [revealAnswer, setRevealAnswer] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [index, setIndex] = useState(0);
 
     const api_url = 'https://opentdb.com/api.php?amount=10&type=multiple'
 
@@ -36,19 +37,25 @@ import { Quiz } from './components/Quiz';
     }
     
     const handleAnswer = (answer) => {
-      if (answer === questions[0].correct_answer) {
+      if (answer === questions[index].correct_answer) {
         setScore(score + 1)
       }
       setRevealAnswer(true)
+    }
+
+    const handleNextQuestion = () => {
+      setRevealAnswer(false)
+      setIndex(index + 1)
     }
 
     return (
       <div className="App">
         {startQuiz ? isLoading ?
         <Quiz 
-        data={questions[0]} 
+        data={questions[index]} 
         handleAnswer={handleAnswer}
         revealAnswer={revealAnswer}
+        handleNextQuestion={handleNextQuestion}
         /> : <ClipLoader size={100}/>
         : 
         <Welcome startQuiz={handleStart} />}
