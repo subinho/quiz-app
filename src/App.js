@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import he from 'he';
+import { ClipLoader } from 'react-spinners';
 
 import { Welcome } from './components/Welcome';
 import { Quiz } from './components/Quiz';
@@ -48,7 +49,7 @@ import { Quiz } from './components/Quiz';
         data={questions[0]} 
         handleAnswer={handleAnswer}
         revealAnswer={revealAnswer}
-        /> : <h1>Loading...</h1>
+        /> : <ClipLoader size={100}/>
         : 
         <Welcome startQuiz={handleStart} />}
       </div>
