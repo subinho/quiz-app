@@ -95,3 +95,11 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
+
+.correct-answer, .correct-answer:hover {
+  background-color: hsl(120, 96%, 56%);
+}
+
+.wrong-answer, .wrong-answer:hover {
+  background-color: hsl(0, 100%, 63%);
+}
