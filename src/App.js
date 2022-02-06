@@ -10,6 +10,7 @@ import { Quiz } from './components/Quiz';
     const [questions, setQuestions] = useState([]);
     const [score, setScore] = useState(0);
     const [revealAnswer, setRevealAnswer] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const api_url = 'https://opentdb.com/api.php?amount=10&type=multiple'
 
@@ -26,6 +27,7 @@ import { Quiz } from './components/Quiz';
       })
 
       setQuestions(decodedData)
+      setIsLoading(true)
     }, [])
 
     const handleStart = () => {
@@ -41,12 +43,12 @@ import { Quiz } from './components/Quiz';
 
     return (
       <div className="App">
-        {startQuiz ? 
+        {startQuiz ? isLoading ?
         <Quiz 
         data={questions[0]} 
         handleAnswer={handleAnswer}
         revealAnswer={revealAnswer}
-        />
+        /> : <h1>Loading...</h1>
         : 
         <Welcome startQuiz={handleStart} />}
       </div>
