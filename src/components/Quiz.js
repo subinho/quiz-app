@@ -3,9 +3,8 @@ import React, { useMemo } from 'react';
 export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handleAnswer, revealAnswer, handleNextQuestion })=> {
   const shuffledAnswers = useMemo(() => (
     [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5)
-  ), [])
-
-  console.log(shuffledAnswers);
+  ), [question])
+  
   return (
     <div className='quiz'>
         <div className='quiz-question'>
