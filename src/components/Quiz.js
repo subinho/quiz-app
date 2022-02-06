@@ -14,7 +14,7 @@ export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handl
           {shuffledAnswers.map(answer => {
             const revealColor = revealAnswer ? answer === correct_answer ? 'correct-answer' : 'wrong-answer' : '';
             return (
-            <button className={`quiz-answers-button ${revealColor}`} onClick={() => handleAnswer(answer)}> {answer} </button>
+            <button key={answer} className={`quiz-answers-button ${revealColor}`} onClick={() => handleAnswer(answer)}> {answer} </button>
           )})}
         </div>
   </div>
