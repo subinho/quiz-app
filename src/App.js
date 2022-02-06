@@ -32,7 +32,6 @@ import { PlayAgain } from './components/PlayAgain';
 
       setQuestions(decodedData)
       setIsLoading(true)
-      console.log(decodedData);
     }, [endGame])
 
     const handleStart = () => {
@@ -58,16 +57,18 @@ import { PlayAgain } from './components/PlayAgain';
     
     return (
       <div className="App">
-        {endGame ? startQuiz ? isLoading ?
+        {endGame ? startQuiz ? 
         <Quiz 
         data={questions[index]} 
         handleAnswer={handleAnswer}
         revealAnswer={revealAnswer}
         handleNextQuestion={handleNextQuestion}
+        index={index}
         /> 
-        : <ClipLoader size={100}/>
         : <Welcome startQuiz={handleStart} /> 
-        : <PlayAgain handleNewGame={handleNewGame} score={score}/>}
+        : isLoading ? 
+        <PlayAgain handleNewGame={handleNewGame} score={score}/> 
+        : <ClipLoader size={100}/>}
       </div>
     )
 };
