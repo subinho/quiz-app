@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handleAnswer, revealAnswer })=> {
-  const shuffledAnswers = [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5);
+  const shuffledAnswers = useMemo(shuffle => (
+    [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5)
+  ), [])
   
   return (
     <div className='quiz'>
