@@ -57,6 +57,7 @@ body {
 /* Quiz Component */
 
 .quiz {
+  margin: 1em;
   padding: 5em;
   background-color: var(--light-green-color);
   border-radius: 70px;
@@ -81,7 +82,6 @@ body {
 .quiz-answers-button {
   font-size: 1em;
   font-weight: 800;
-  min-width: 36rem;
   padding: 2em 2em;
   background-color: var(--light-blue-color);
   color: #fff;
