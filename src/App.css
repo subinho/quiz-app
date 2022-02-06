@@ -103,3 +103,18 @@ body {
 .wrong-answer, .wrong-answer:hover {
   background-color: hsl(0, 100%, 63%);
 }
+
+.quiz-next-question {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.quiz-btn {
+  font-size: clamp(1rem, 1.2vw, 2rem);
+  font-weight: bold;
+  padding: 1em 5em;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--light-blue-color);
+  color: #fff;
+}
