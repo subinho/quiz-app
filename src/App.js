@@ -9,6 +9,7 @@ import { Quiz } from './components/Quiz';
     const [startQuiz, setStartQuiz] = useState(false);
     const [questions, setQuestions] = useState([]);
     const [score, setScore] = useState(0);
+    const [revealAnswer, setRevealAnswer] = useState(false);
 
     const api_url = 'https://opentdb.com/api.php?amount=10&type=multiple'
 
@@ -35,12 +36,17 @@ import { Quiz } from './components/Quiz';
       if (answer === questions[0].correct_answer) {
         setScore(score + 1)
       }
+      setRevealAnswer(true)
     }
 
     return (
       <div className="App">
         {startQuiz ? 
-        <Quiz data={questions[0]} handleAnswer={handleAnswer}/>
+        <Quiz 
+        data={questions[0]} 
+        handleAnswer={handleAnswer}
+        revealAnswer={revealAnswer}
+        />
         : 
         <Welcome startQuiz={handleStart} />}
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handleAnswer })=> {
+export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handleAnswer, revealAnswer })=> {
   const shuffledAnswers = [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5);
   
   return (
@@ -9,9 +9,11 @@ export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handl
             <h2>{question}</h2>    
         </div>
         <div className='quiz-answers'>
-          {shuffledAnswers.map(answer => (
-            <button className='quiz-answers-button' onClick={() => handleAnswer(answer)}> {answer} </button>
-          ))}
+          {shuffledAnswers.map(answer => {
+            const revealColor = revealAnswer ? answer === correct_answer ? 'correct-answer' : 'wrong-answer' : '';
+            return (
+            <button className={`quiz-answers-button ${revealColor}`} onClick={() => handleAnswer(answer)}> {answer} </button>
+          )})}
         </div>
   </div>
   );
