@@ -5,6 +5,7 @@ import { ClipLoader } from 'react-spinners';
 
 import { Welcome } from './components/Welcome';
 import { Quiz } from './components/Quiz';
+import { PlayAgain } from './components/PlayAgain';
 
   const App = () => { 
     const [startQuiz, setStartQuiz] = useState(false);
@@ -31,7 +32,8 @@ import { Quiz } from './components/Quiz';
 
       setQuestions(decodedData)
       setIsLoading(true)
-    }, [])
+      console.log(decodedData);
+    }, [endGame])
 
     const handleStart = () => {
       setStartQuiz(true)
@@ -48,6 +50,11 @@ import { Quiz } from './components/Quiz';
       setRevealAnswer(false)
       setIndex(index + 1)
     }
+
+    const handleNewGame = () => {
+      setIndex(0)
+      setScore(0)
+    }
     
     return (
       <div className="App">
@@ -60,7 +67,7 @@ import { Quiz } from './components/Quiz';
         /> 
         : <ClipLoader size={100}/>
         : <Welcome startQuiz={handleStart} /> 
-        : <div>{score}</div>}
+        : <PlayAgain handleNewGame={handleNewGame} score={score}/>}
       </div>
     )
 };
