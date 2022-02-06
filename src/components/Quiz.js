@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handleAnswer, revealAnswer })=> {
-  const shuffledAnswers = useMemo(shuffle => (
+  const shuffledAnswers = useMemo(() => (
     [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5)
   ), [])
   
