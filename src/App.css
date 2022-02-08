@@ -57,6 +57,7 @@ body {
 /* Quiz Component */
 
 .quiz {
+  min-width: 70%;
   margin: 1em;
   padding: 5em;
   background-color: var(--light-green-color);
@@ -64,7 +65,7 @@ body {
 }
 
 .quiz-question {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
   min-width: 60%;
   padding: 3em 2em;
   margin-bottom: 4em;
@@ -80,7 +81,7 @@ body {
 }
 
 .quiz-answers-button {
-  font-size: 1em;
+  font-size: clamp(0.7rem, 1.2vw, 1.125rem);
   font-weight: 800;
   padding: 2em 2em;
   background-color: var(--light-blue-color);
