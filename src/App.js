@@ -39,8 +39,10 @@ import { PlayAgain } from './components/PlayAgain';
     }
     
     const handleAnswer = (answer) => {
-      if (answer === questions[index].correct_answer) {
-        setScore(score + 1)
+      if(!revealAnswer) {
+        if (answer === questions[index].correct_answer) {
+          setScore(score + 1)
+        }
       }
       setRevealAnswer(true)
     }
