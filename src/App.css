@@ -1,8 +1,9 @@
 :root {
   --white-color: hsl(0, 0%, 100%);
-  --light-blue-color: hsla(183, 82%, 33%, 0.549);
-  --dark-blue-color: hsla(183, 82%, 33%, 0.616);
-  --light-green-color: hsl(154, 47%, 66%);
+  --clr-heading: hsl(154, 47%, 66%);
+  --clr-background: hsl(222, 60%, 61%);
+  --clr-right-answer: hsl(120, 96%, 56%);;
+  --clr-wrong-answer: hsl(0, 100%, 63%);
 }
 
 * {
@@ -21,6 +22,9 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 /* Welcome Component */
@@ -28,10 +32,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 23%;
 }
 
 .welcome h1 {
-  color: var(--light-green-color);
+  color: var(--clr-heading);
   margin-bottom: 1em;
   font-size: 4rem;
 }
@@ -39,17 +44,16 @@ body {
 .welcome button {
   font-size: 2rem;
   font-weight: bold;
-  min-width: 18em;
-  padding: 1em 2em;
-  background-color: var(--light-blue-color);
+  min-width: 100%;
   color: hsl(0, 0%, 100%);
   border: 0px;
-  border-radius: 45px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: var(--clr-background);
+  border-radius: 5px;
+  padding: 0.7em;
 }
 
 .welcome button:hover {
-  background-color: var(--dark-blue-color);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
@@ -57,10 +61,9 @@ body {
 /* Quiz Component */
 
 .quiz {
-  min-width: 70%;
+  min-width: 70vw;
   margin: 1em;
   padding: 5em;
-  background-color: var(--light-green-color);
   border-radius: 70px;
 }
 
@@ -69,9 +72,10 @@ body {
   min-width: 60%;
   padding: 3em 2em;
   margin-bottom: 4em;
-  background-color: var(--light-blue-color);
   color: hsl(0, 0%, 100%);
-  border-radius: 25px;
+  background-color: var(--clr-background);
+  border-radius: 15px;
+  text-align: center;
 }
 
 .quiz-answers {
@@ -83,26 +87,25 @@ body {
 .quiz-answers-button {
   font-size: clamp(0.7rem, 1.2vw, 1.125rem);
   font-weight: 800;
-  padding: 2em 2em;
-  background-color: var(--light-blue-color);
   color: #fff;
   border: none;
-  border-radius: 25px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  background-color: var(--clr-background);
+  border-radius: 9px;
+  padding: 1.2em 0;
 }
 
 .quiz-answers-button:hover {
-  background-color: var(--dark-blue-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
 .correct-answer, .correct-answer:hover {
-  background-color: hsl(120, 96%, 56%);
+  background-color: var(--clr-right-answer);
 }
 
 .wrong-answer, .wrong-answer:hover {
-  background-color: hsl(0, 100%, 63%);
+  background-color: var(--clr-wrong-answer);
 }
 
 .quiz-next-question {
@@ -111,11 +114,33 @@ body {
 }
 
 .quiz-btn {
-  font-size: clamp(1rem, 1.2vw, 2rem);
+  font-size: clamp(.7rem, 1.1vw, 1.4rem);
   font-weight: bold;
-  padding: 1em 5em;
-  border-radius: 25px;
+  padding: 0.7em 5em;
+  border-radius: 5px;
   border: none;
-  background-color: var(--light-blue-color);
+  background-color: var(--clr-background);
   color: #fff;
+}
+
+/* PlayAgain */
+
+.playAgain {
+  text-align: center;
+}
+
+.playAgain button {
+  background-color: var(--clr-background);
+  border: none;
+  padding: 1em 5em;
+  color: #fff;
+  border-radius: 5px;
+  font-size: clamp(1rem,1.2vw, 1.2rem);
+  font-weight: 800;
+}
+
+.playAgain h1 {
+  color: var(--clr-heading);
+  font-size: clamp(2rem, 2.2vw, 3rem);
+  margin-bottom: 1em;
 }
