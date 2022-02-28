@@ -14,8 +14,11 @@ import { PlayAgain } from './components/PlayAgain';
     const [revealAnswer, setRevealAnswer] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [index, setIndex] = useState(0);
+    const [amountOfQuestions, setAmountOfQuestions] = useState(10);
+    const [difficultyOfQuestions, setDifficultyOfQuestions] = useState(0)
+    const [categoryOfQuestions, setCategoryOfQuestions] = useState(0)
 
-    const api_url = 'https://opentdb.com/api.php?amount=10&type=multiple'
+    let api_url = `https://opentdb.com/api.php?amount=${amountOfQuestions}&category=${categoryOfQuestions}&difficulty=${difficultyOfQuestions}&type=multiple`
     const endGame = index < questions.length
 
     useEffect(async () => {
@@ -32,9 +35,10 @@ import { PlayAgain } from './components/PlayAgain';
 
       setQuestions(decodedData)
       setIsLoading(true)
-    }, [endGame])
+    }, [startQuiz])
 
     const handleStart = () => {
+      setIsLoading(false)
       setStartQuiz(true)
     }
     
@@ -56,18 +60,37 @@ import { PlayAgain } from './components/PlayAgain';
       setIndex(0)
       setScore(0)
     }
+
+    const handleAmountOfQuestions = value => {
+      setAmountOfQuestions(value.value)
+      console.log(amountOfQuestions)
+    }
+
+    const handleDifficultyOfQuestions = value => {
+      setDifficultyOfQuestions(value.value)
+      console.log(difficultyOfQuestions)
+    }
+
+    const handleCategoryOfQuestions = value => {
+      setCategoryOfQuestions(value.value)
+    }
     
     return (
       <div className="App">
-        {endGame ? startQuiz ? 
+        {endGame ? startQuiz ? isLoading ?
         <Quiz 
         data={questions[index]} 
         handleAnswer={handleAnswer}
         revealAnswer={revealAnswer}
         handleNextQuestion={handleNextQuestion}
         index={index}
-        /> 
-        : <Welcome startQuiz={handleStart} /> 
+        amount={amountOfQuestions}
+        />  : <ClipLoader size={100}/>
+        : <Welcome startQuiz={handleStart}
+          handleAmount={handleAmountOfQuestions}
+          handleDifficulty={handleDifficultyOfQuestions}
+          handleCategory={handleCategoryOfQuestions}
+          /> 
         : isLoading ? 
         <PlayAgain handleNewGame={handleNewGame} score={score}/> 
         : <ClipLoader size={100}/>}
