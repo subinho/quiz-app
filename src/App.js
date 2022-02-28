@@ -57,6 +57,10 @@ import { PlayAgain } from './components/PlayAgain';
     }
 
     const handleNewGame = () => {
+      setStartQuiz(false)
+      setAmountOfQuestions(10)
+      setDifficultyOfQuestions(0)
+      setCategoryOfQuestions(0)
       setIndex(0)
       setScore(0)
     }
