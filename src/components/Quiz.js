@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handleAnswer, revealAnswer, handleNextQuestion, index })=> {
+export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handleAnswer, revealAnswer, handleNextQuestion, index, amount })=> {
   const shuffledAnswers = useMemo(() => (
     [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5)
   ), [question])
@@ -18,7 +18,7 @@ export const Quiz = ({data: {question, correct_answer, incorrect_answers}, handl
           )})}
         </div>
         {revealAnswer && <div className='quiz-next-question'>
-          <button className='quiz-btn' onClick={handleNextQuestion}>{index < 9 ? 'Next Question' : 'End Quiz'}</button>
+          <button className='quiz-btn' onClick={handleNextQuestion}>{index < amount - 1 ? 'Next Question' : 'End Quiz'}</button>
         </div>}
   </div>
   );
