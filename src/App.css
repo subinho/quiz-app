@@ -132,6 +132,9 @@ body {
 .quiz-next-question {
   text-align: center;
   margin-top: 2em;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .quiz-btn {
