@@ -1,7 +1,7 @@
 :root {
   --white-color: hsl(0, 0%, 100%);
   --clr-heading: hsl(154, 47%, 66%);
-  --clr-background: hsl(222, 60%, 61%);
+  --clr-background: linear-gradient(90deg, hsl(222, 60%, 61%), hsl(213deg 94% 72%));
   --clr-right-answer: hsl(120, 96%, 56%);;
   --clr-wrong-answer: hsl(0, 100%, 63%);
 }
@@ -49,7 +49,7 @@ body {
   color: hsl(0, 0%, 100%);
   border: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  background-color: var(--clr-background);
+  background: var(--clr-background);
   border-radius: 5px;
   padding: 0.7em;
 }
@@ -95,7 +95,7 @@ body {
   padding: 3em 2em;
   margin-bottom: 4em;
   color: hsl(0, 0%, 100%);
-  background-color: var(--clr-background);
+  background: var(--clr-background);
   border-radius: 15px;
   text-align: center;
 }
@@ -112,7 +112,7 @@ body {
   color: #fff;
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  background-color: var(--clr-background);
+  background: var(--clr-background);
   border-radius: 9px;
   padding: 1.2em 0;
 }
@@ -123,11 +123,11 @@ body {
 }
 
 .correct-answer, .correct-answer:hover {
-  background-color: var(--clr-right-answer);
+  background: var(--clr-right-answer);
 }
 
 .wrong-answer, .wrong-answer:hover {
-  background-color: var(--clr-wrong-answer);
+  background: var(--clr-wrong-answer);
 }
 
 .quiz-next-question {
@@ -144,7 +144,7 @@ body {
   padding: 0.7em 5em;
   border-radius: 5px;
   border: none;
-  background-color: var(--clr-background);
+  background: var(--clr-background);
   color: #fff;
 }
 
@@ -155,7 +155,7 @@ body {
 }
 
 .playAgain button {
-  background-color: var(--clr-background);
+  background: var(--clr-background);
   border: none;
   padding: 1em 5em;
   color: #fff;
@@ -168,4 +168,5 @@ body {
   color: var(--clr-heading);
   font-size: clamp(2rem, 2.2vw, 3rem);
   margin-bottom: 1em;
+  text-align: left;
 }
