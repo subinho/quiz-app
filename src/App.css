@@ -39,6 +39,7 @@ body {
   color: var(--clr-heading);
   margin-bottom: 1em;
   font-size: 4rem;
+  letter-spacing: 0.125em;
 }
 
 .welcome button {
