@@ -85,7 +85,6 @@ body {
 .quiz {
   min-width: 70vw;
   margin: 1em;
-  padding: 5em;
   border-radius: 70px;
 }
 
@@ -169,4 +168,16 @@ body {
   font-size: clamp(2rem, 2.2vw, 3rem);
   margin-bottom: 1em;
   text-align: left;
+}
+
+@media screen and (max-width: 500px) {
+  .quiz-question {
+    padding: 2em 0.5em;
+    margin-bottom: 2em;
+  }
+
+  .quiz-answers {
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 1em;
+  }
 }
